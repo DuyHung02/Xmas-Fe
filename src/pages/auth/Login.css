@@ -1,0 +1,40 @@
+.background-login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://i.pinimg.com/564x/c2/42/a5/c242a5024a0f1c8dc33447ccf39aa924.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 90%;
+    z-index: -1;
+}
+
+.background-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.background-form-login::before {
+    border-radius: 10px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: burlywood;
+    opacity: 92%;
+    z-index: -1;
+}
+
+.background-form-login {
+    min-width: 300px;
+    max-width: 600px;
+    width: 70%;
+    position: relative;
+}

@@ -1,0 +1,141 @@
+.chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #50cd89;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+.chat-bubble.open {
+    background-color: #3fa26c;
+}
+
+.bubble-icon {
+    display: block;
+}
+
+.bubble-icon img {
+    max-width: 55px;
+    max-height: 55px;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+
+    position: absolute;
+    bottom: 5px;
+    right: 80px;
+    width: 320px;
+    height: 420px;
+    background-color: #2b2b40;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.chat-content {
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.chat-message,
+.chat-your-message {
+    display: flex;
+    font-size: 15px;
+    margin-bottom: 5px;
+    /*width: 70%;*/
+    /*word-wrap: break-word;*/
+}
+
+.chat-image {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.chat-message {
+    align-items: center;
+}
+
+.chat-message p {
+    background-color: #151521;
+    padding: 3px 7px 3px 7px;
+    border-radius: 10px;
+    text-align: start;
+    max-width: 70%;
+}
+
+.chat-your-message p {
+    background-color: #50cd89;
+    padding: 3px 7px 3px 7px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.chat-your-message {
+    justify-content: flex-end;
+}
+
+.chat-bubble.open + .chat-window {
+    display: block;
+}
+
+.header-box {
+    display: flex;
+    padding: 10px;
+    background-color: #151521;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.header-box img {
+    margin-right: 10px;
+}
+
+.header-box i {
+    margin-left: auto;
+}
+
+.header-box p {
+    align-self: center;
+    font-size: 15px;
+    margin: 0
+}
+
+.input-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.input-message {
+    height: 38px;
+    width: 75%;
+}
+
+.btn-send {
+    line-height: 10px;
+}

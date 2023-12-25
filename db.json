@@ -1,0 +1,192 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "haru",
+      "password": "123456",
+      "isAdmin": true,
+      "token": "Token TEST"
+    },
+    {
+      "id": 2,
+      "username": "hami",
+      "password": "123456",
+      "isAdmin": true,
+      "token": "Token TEST"
+    },
+    {
+      "username": "andrew",
+      "password": "123456",
+      "token": "Token TEST",
+      "isAdmin": false,
+      "id": 3
+    },
+    {
+      "username": "hydra",
+      "password": "123",
+      "token": "Token TEST",
+      "isAdmin": false,
+      "id": 4
+    },
+    {
+      "username": "otis",
+      "password": "123456",
+      "token": "Token TEST",
+      "isAdmin": false,
+      "id": 5
+    }
+  ],
+  "profiles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "email": "haru2310@gmail.com",
+      "avatar": "https://i.pinimg.com/564x/03/64/f0/0364f0a472a97ae84c36682b56d31d87.jpg",
+      "gender": "male",
+      "firstName": "Haru",
+      "lastName": "Dang"
+    },
+    {
+      "userId": 2,
+      "email": "hamine@gmail.com",
+      "avatar": "https://i.pinimg.com/564x/c8/74/7d/c8747d1da5448cbdbe9a43fcc65585dc.jpg",
+      "firstName": "Hamiee",
+      "lastName": "Tata",
+      "gender": "female",
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "avatar": "https://i.pinimg.com/564x/03/64/f0/0364f0a472a97ae84c36682b56d31d87.jpg",
+      "firstName": "Andrew",
+      "lastName": "Nguyen",
+      "id": 3,
+      "email": "andrew@gmail.com",
+      "gender": "male"
+    },
+    {
+      "userId": 4,
+      "avatar": "https://i.pinimg.com/564x/03/64/f0/0364f0a472a97ae84c36682b56d31d87.jpg",
+      "firstName": "Hydra",
+      "lastName": "Nguyen",
+      "id": 4,
+      "email": "hydra@gamil.com",
+      "gender": "male"
+    },
+    {
+      "userId": 5,
+      "avatar": "https://i.pinimg.com/564x/03/64/f0/0364f0a472a97ae84c36682b56d31d87.jpg",
+      "firstName": "Otis",
+      "lastName": "Nguyen",
+      "id": 5
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "X-mas decor",
+      "image": "https://s.alicdn.com/@sc04/kf/Hb9a8f03368444557b739a68576cf08a7y.jpg_300x300.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 250,
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "X-mas food",
+      "image": "https://i.pinimg.com/236x/09/57/f3/0957f3ef4341454ec9f9924c0f22c6eb.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 150,
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "name": "X-mas decor",
+      "image": "https://i.pinimg.com/236x/f0/cc/b7/f0ccb74285404cc6d8e613c9a586fe70.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 150,
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "X-mas food",
+      "image": "https://i.pinimg.com/236x/ee/b2/40/eeb24028502549159d8950417f633601.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 15,
+      "categoryId": 2
+    },
+    {
+      "id": 5,
+      "name": "X-mas decor",
+      "image": "https://i.pinimg.com/236x/a6/80/4a/a6804adb4f1cf806ad4a9a5934dbaf7d.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 9999,
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "X-mas food",
+      "image": "https://i.pinimg.com/236x/8a/12/76/8a1276f076c6ab912118e112c0a521f0.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 20,
+      "categoryId": 2
+    },
+    {
+      "id": 7,
+      "name": "X-mas decor",
+      "image": "https://i.pinimg.com/236x/f6/e0/65/f6e0652fbb5ae3029791b7d49101de6e.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 150,
+      "categoryId": 1
+    },
+    {
+      "id": 8,
+      "name": "X-mas food",
+      "image": "https://i.pinimg.com/236x/09/57/f3/0957f3ef4341454ec9f9924c0f22c6eb.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 150,
+      "categoryId": 2
+    },
+    {
+      "id": 9,
+      "name": "X-mas decor",
+      "image": "https://i.pinimg.com/236x/a7/79/c8/a779c8f75c8f52fdc7d801b69c0a9f75.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 50,
+      "categoryId": 1
+    },
+    {
+      "id": 10,
+      "name": "X-mas food",
+      "image": "https://i.pinimg.com/236x/81/96/cd/8196cd14780a6061263df26b2ec9f5f9.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 80,
+      "categoryId": 2
+    },
+    {
+      "id": 11,
+      "name": "X-mas decor",
+      "image": "https://i.pinimg.com/236x/8d/41/01/8d410108ca763c9415b09845968ea539.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 50,
+      "categoryId": 1
+    },
+    {
+      "id": 12,
+      "name": "X-mas food",
+      "image": "https://i.pinimg.com/236x/09/57/f3/0957f3ef4341454ec9f9924c0f22c6eb.jpg",
+      "deception": "Deception about this in here. You can buy it for yourself or someone you care about!",
+      "price": 150,
+      "categoryId": 2
+    }
+  ],
+  "categorise": [
+    {
+      "id": 1,
+      "name": "decor"
+    },
+    {
+      "id": 2,
+      "name": "food"
+    }
+  ]
+}
