@@ -1,0 +1,117 @@
+.conversation-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 70px);
+    background-color: white;
+    padding: 10px;
+}
+
+.conversation-header {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.conversation-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.conversation-input {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.message-name {
+    padding: 10px;
+}
+
+.message-name h6 {
+    margin: 0;
+}
+
+.message-name p {
+    margin: auto;
+    white-space: nowrap;       /* Ngăn chặn xuống dòng */
+    overflow: hidden;          /* Ẩn nội dung dư thừa */
+    text-overflow: ellipsis;   /* Hiển thị dấu "..." khi tràn ngang */
+    width: 150px;
+    font-size: 15px;
+}
+
+.message-user {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-option {
+    font-size: 35px;
+    color: #fd5454;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.4s ease;
+}
+
+.message-option:hover {
+    color: #be4040;
+    background-color: #ced4da;
+    border-radius: 15px;
+}
+
+.message-input {
+    width: 80%;
+    min-width: 150px;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.message-receiver {
+    display: block;
+    margin: 10px 0 10px 10px;
+}
+
+.message-receiver label {
+    font-size: 13px;
+    color: gray;
+    margin-left: 50px;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+}
+
+.message-content p {
+    max-width: 60%;
+    margin: 0 0 0 10px;
+    padding: 4px 10px 4px 10px;
+    background-color: #ced4da;
+    color: #282c34;
+    font-size: 15px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}
+
+.message-sender {
+    display: flex;
+    align-items: center;
+    margin: 10px 10px 10px 0;
+    justify-content: flex-end;
+}
+
+.message-sender p {
+    max-width: 60%;
+    margin: 0 10px 0 0;
+    padding: 4px 10px 4px 10px;
+    background-color: #fd5454;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}

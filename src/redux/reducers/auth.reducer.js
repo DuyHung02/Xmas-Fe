@@ -54,7 +54,7 @@ const authReducer = (state = initState, action) => {
       }
     case LOGIN_SUCCESS:
       userInfo = {
-        userId: authData.id,
+        userId: authData.userId,
         isAdmin: authData.isAdmin,
       };
       return {
@@ -63,7 +63,7 @@ const authReducer = (state = initState, action) => {
         username: authData.username,
         token: authData.token,
         isAdmin: authData.isAdmin,
-        userId: authData.id,
+        userId: authData.userId,
         isLoading: false,
         message: '',
       };

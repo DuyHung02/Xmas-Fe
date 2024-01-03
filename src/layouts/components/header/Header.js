@@ -10,6 +10,7 @@ import {logout} from "../../../redux/actions/auth.action";
 import {connect} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import Image from 'react-bootstrap/Image';
+import './Header.css'
 
 const Header = ({userInfoState, profileState, logoutAction}) => {
     const navigate = useNavigate()
@@ -25,7 +26,7 @@ const Header = ({userInfoState, profileState, logoutAction}) => {
     return (
         <Navbar
             expand="sm"
-            className="bg-body-tertiary"
+            className="bg-body-tertiary nav-custom"
             // fixed="top"
             data-bs-theme="light"
             bg="light"
@@ -41,7 +42,7 @@ const Header = ({userInfoState, profileState, logoutAction}) => {
                         style={{maxHeight: '100px'}}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
+                        <Nav.Link onClick={() => navigate('/message')}>Message</Nav.Link>
                         <Nav.Link href="#action2">Link</Nav.Link>
                     </Nav>
 
@@ -51,7 +52,10 @@ const Header = ({userInfoState, profileState, logoutAction}) => {
                                 id="nav-dropdown-dark-example"
                                 title={
                                     <>
-                                        <Image src={profileState.avatar} thumbnail roundedCircle width={50}
+                                        <Image src={profileState.avatar}
+                                               thumbnail
+                                               roundedCircle
+                                               width={50}
                                                className={'object-fit-cover p-1'}
                                         />
                                         {profileState.firstName}

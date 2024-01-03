@@ -1,5 +1,4 @@
 import {axiosInstance} from "../../services/axios.service";
-import {find} from "lodash";
 import {toast} from 'react-toastify';
 import {profileAction} from "../slices/profile.slice";
 
@@ -19,12 +18,12 @@ export const CHANGE_PASSWORD_FAIL = "CHANGE_PASSWORD_FAIL";
 export const login = (payload) => async (dispatch) => {
     try {
         dispatch({type: LOGIN_PENDING});
-        const users = await axiosInstance.get('/users');
-        const user = find(users?.data, u => u.username === payload.username && u.password === payload.password);
+        const response = await axiosInstance.post('/user/login', payload)
+        const user = response.data
         if (user) {
             dispatch({
                 type: `${profileAction.fetchProfilePending}_saga`,
-                payload: user.id,
+                payload: user.userId,
             })
             dispatch({type: LOGIN_SUCCESS, payload: {...user}});
             toast.success(`Welcome back, ${user.username}`)

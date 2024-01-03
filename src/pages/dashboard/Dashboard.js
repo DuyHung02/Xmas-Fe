@@ -1,17 +1,15 @@
 import React, {useEffect} from 'react';
 import {connect, useSelector} from "react-redux";
-import {logout} from "../../redux/actions/auth.action";
 import Banner from "../../layouts/components/banners/Banner";
 import Container from "react-bootstrap/Container";
 import ListProducts from "../../layouts/components/products/ListProducts";
 import {managerProductActions} from "../../redux/slices/managerProduct.slice";
-import ChatBox from "../../layouts/components/messager/ChatBox";
 
 const Dashboard = ({ productsState, fetchProductsAction }) => {
 
-  useEffect(() => {
-    fetchProductsAction()
-  }, [])
+  // useEffect(() => {
+  //   fetchProductsAction()
+  // }, [])
 
   const dataProducts = useSelector((state) => state['product'])
   console.log('data products: ', dataProducts)
@@ -26,8 +24,7 @@ const Dashboard = ({ productsState, fetchProductsAction }) => {
       <hr />
       <h3>Products</h3>
       <hr />
-      <ListProducts />
-      <ChatBox />
+      {/*<ListProducts />*/}
     </Container>
   </>
 }

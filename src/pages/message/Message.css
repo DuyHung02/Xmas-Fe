@@ -1,0 +1,27 @@
+.nav-pills {
+    --bs-nav-pills-border-radius: var(--bs-border-radius);
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #fd5454 !important;
+}
+
+.nav-link {
+    --bs-nav-link-color: #1e1e1e;
+    --bs-nav-link-hover-color: rgba(38, 38, 38, 0.9);
+}
+
+.message-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.message-btn-add {
+    cursor: pointer;
+    transition: color 0.4s ease;
+}
+
+.message-btn-add:hover {
+    color: #fd5454;
+}

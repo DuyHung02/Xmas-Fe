@@ -8,6 +8,10 @@ const fetchProfiles = async () => {
     return axiosInstance.get(`/profiles`)
 }
 
+const fetchProfileByUserId = async (userId) => {
+    return axiosInstance.get(`/user/profile/${userId}`)
+}
+
 const createProfile = async (payload) => {
     const profile = {
         userId: payload.userId,
@@ -28,8 +32,8 @@ const handleFetchProfile = function* (action) {
         yield put({
             type: profileAction.fetchProfilePending.type
         })
-        const response = yield call(fetchProfiles)
-        const profile = response.data.find(p => p.userId === action.payload)
+        const response = yield call(() => fetchProfileByUserId(action.payload))
+        const profile = response.data.data;
         yield put({
             type: profileAction.fetchProfileSuccess.type,
             payload: profile

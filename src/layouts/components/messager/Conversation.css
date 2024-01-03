@@ -1,0 +1,17 @@
+.conversation-user {
+    display: flex;
+    align-items: center;
+}
+
+.conversation-name {
+    padding: 10px;
+}
+
+.conversation-name p {
+    margin: auto;
+    white-space: nowrap;       /* Ngăn chặn xuống dòng */
+    overflow: hidden;          /* Ẩn nội dung dư thừa */
+    text-overflow: ellipsis;   /* Hiển thị dấu "..." khi tràn ngang */
+    width: 150px;
+    font-size: 15px;
+}

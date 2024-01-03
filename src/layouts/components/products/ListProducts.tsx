@@ -6,25 +6,6 @@ import ReactPaginate from 'react-paginate';
 import {isEmpty} from "lodash";
 
 const ListProducts = ({ dataProducts }) => {
-    const [currentPage, setCurrentPage] = useState(0);
-    const [pageCount, setPageCount] = useState(0)
-    const handlePageChange = (selectedPage) => {
-        setCurrentPage(selectedPage.selected);
-    };
-
-    // Tính toán số lượng trang và hiển thị danh sách sản phẩm theo trang
-    const itemsPerPage = 10; // Số lượng sản phẩm mỗi trang
-
-
-    useEffect(() => {
-        if (!isEmpty(dataProducts)) {
-            setPageCount(Math.ceil(dataProducts.length / itemsPerPage));
-            const displayedProducts = dataProducts.slice(
-                currentPage * itemsPerPage,
-                (currentPage + 1) * itemsPerPage
-            );
-        }
-    }, [dataProducts])
 
     return (
         <>
@@ -245,18 +226,6 @@ const ListProducts = ({ dataProducts }) => {
                     </div>
                 </Col>
             </Row>
-        {/* Hiển thị phân trang */}
-            <ReactPaginate
-                previousLabel={'Previous'}
-                nextLabel={'Next'}
-                breakLabel={'...'}
-                pageCount={pageCount}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
-                onPageChange={handlePageChange}
-                containerClassName={'pagination'}
-                activeClassName={'active'}
-            />
         </>
     )
 }
