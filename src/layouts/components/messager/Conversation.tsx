@@ -7,10 +7,12 @@ import {IMessage} from "../../../redux/types/message";
 
 type IConversationComponent = {
     dataConversation: IConversation;
+    userId: number;
 }
 
 const Conversation: React.FC<IConversationComponent> = ({
                                                             dataConversation,
+    userId,
                                                         }) => {
     const [message, setMessage] = useState<IMessage>({} as IMessage);
     const listMessage = dataConversation?.messages
@@ -33,7 +35,7 @@ const Conversation: React.FC<IConversationComponent> = ({
                 />
                 <div className={"conversation-name"}>
                     <h6>{dataConversation.name}</h6>
-                    <p>{message.content}</p>
+                    <p>{userId === message.senderId ? 'Bạn' : message.sender?.profile.firstName}: {message.content}</p>
                 </div>
             </div>
         </>

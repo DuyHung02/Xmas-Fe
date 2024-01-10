@@ -1,6 +1,6 @@
 import './ConversationMessage.css';
 import Image from "react-bootstrap/Image";
-import React, {useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import Form from 'react-bootstrap/Form';
 import {FaInfoCircle} from "react-icons/fa";
 import {FaPhone} from "react-icons/fa6";
@@ -12,32 +12,84 @@ import {RiEmojiStickerFill} from "react-icons/ri";
 import {IConversation} from "../../../redux/types/conversation";
 import {IMessage} from "../../../redux/types/message";
 import {CreateMessageDto} from "../../../redux/types/dtos/createMessage";
+import {useSocket} from "../../../utils/context/socket.context";
+import {useDispatch} from "react-redux";
+import {messageAction} from "../../../redux/slices/message.slice";
+import {axiosInstance} from "../../../services/axios.service";
 
 type IConversationMessageComponent = {
     dataConversation: IConversation,
     userId: number,
-    onSendMessage: (dataCreateMessage: CreateMessageDto) => void,
 }
 
 const ConversationMessage: React.FC<IConversationMessageComponent> = ({
                                                                           dataConversation,
                                                                           userId,
-                                                                          onSendMessage,
                                                                       }) => {
+    const socket = useSocket();
+    const dispatch = useDispatch();
     const [message, setMessage] = useState("");
+    const [listMessages, setListMessages] = useState<IMessage[]>([])
+    const ref = useRef<HTMLDivElement>(null);
 
-    const handleSendMessage = () => {
-        const dataCreateMessage = {
-            senderId: userId,
-            content: message,
-            conversationId: dataConversation.id,
+    useEffect(() => {
+        if (dataConversation.messages) {
+            setListMessages(dataConversation.messages)
         }
-        onSendMessage(dataCreateMessage);
-        setMessage("")
+    }, [])
+
+    useEffect(() => {
+        if (listMessages?.length) {
+            ref.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "end",
+            });
+        }
+    }, [listMessages])
+
+    useEffect(() => {
+        socket.emit('JOIN_CONVERSATION', dataConversation.id);
+        const handleNewMessage = (payload: IMessage) => {
+            dispatch({
+                type: messageAction.sendMessageSuccess.type,
+                payload: payload,
+            });
+            setListMessages(prevListMessages => [...prevListMessages, payload]);
+        };
+
+        socket.on(`NEW_MESSAGE_${dataConversation.id}`, handleNewMessage);
+
+        return () => {
+            socket.off(`NEW_MESSAGE_${dataConversation.id}`);
+        };
+    }, [dataConversation.id, dispatch, listMessages, socket])
+
+    const handleSendMessage = async () => {
+        try {
+            const dataCreateMessage = {
+                senderId: userId,
+                content: message,
+                conversationId: dataConversation.id,
+            }
+            setMessage("")
+            const response = await axiosInstance.post('/message/send', dataCreateMessage)
+            const newMessage = response.data.data
+            dispatch({
+                type: messageAction.sendMessageSuccess.type,
+                payload: newMessage,
+            });
+            setListMessages(prevListMessages => [...prevListMessages, newMessage]);
+            socket.emit(`SEND_MESSAGE`, newMessage)
+        } catch (e: any) {
+            console.log(e.message)
+        }
     }
 
     const templateReceiver = (dataMessage: IMessage) => {
-        const dataUserInfo = dataMessage.sender.profile
+        let dataUserInfo;
+        if (dataMessage.sender) {
+            dataUserInfo = dataMessage.sender.profile
+        }
         return (
             <div className={"message-receiver"} key={dataMessage.id}>
                 <label>{dataUserInfo.firstName}</label>
@@ -56,7 +108,10 @@ const ConversationMessage: React.FC<IConversationMessageComponent> = ({
     }
 
     const templateSender = (dataMessage: IMessage) => {
-        const dataUserInfo = dataMessage.sender.profile
+        let dataUserInfo;
+        if (dataMessage.sender) {
+            dataUserInfo = dataMessage.sender.profile
+        }
         return (
             <div className={"message-sender"} key={dataMessage.id}>
                 <p>{dataMessage.content}</p>
@@ -97,10 +152,15 @@ const ConversationMessage: React.FC<IConversationMessageComponent> = ({
 
                 <div className={"conversation-content"}>
 
-                    {dataConversation?.messages && dataConversation?.messages.map(message => (
-                        message.sender.id === userId ? templateSender(message) : templateReceiver(message)
+                    {/*{dataConversation?.messages && dataConversation?.messages.map(message => (*/}
+                    {/*    message.sender?.id === userId ? templateSender(message) : templateReceiver(message)*/}
+                    {/*))}*/}
+
+                    {listMessages.map(message => (
+                        message.sender?.id === userId ? templateSender(message) : templateReceiver(message)
                     ))}
 
+                    <div ref={ref} />
                 </div>
 
                 <div className={"conversation-input"}>

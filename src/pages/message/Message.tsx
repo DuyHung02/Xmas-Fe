@@ -11,14 +11,11 @@ import {isEmpty} from "lodash";
 import {IUserConversation} from "../../redux/types/userConversation";
 import ConversationMessage from "../../layouts/components/messager/ConversationMessage";
 import { BiMessageAdd } from "react-icons/bi";
-import {CreateMessageDto} from "../../redux/types/dtos/createMessage";
-
 
 const Message = ({userInfoState}) => {
+    const dispatch = useDispatch();
     const [userConversation, setUserConversation] = useState<IUserConversation[]>([])
-    const dispatch = useDispatch()
     const userConversationState = useSelector((state: any) => state.message.conversations as IUserConversation[])
-    console.log('state: ', userConversationState)
 
     useEffect(() => {
         dispatch({
@@ -28,15 +25,9 @@ const Message = ({userInfoState}) => {
     }, [dispatch, userInfoState.userId])
 
     useEffect(() => {
+        console.log('user conversation is change')
         setUserConversation(userConversationState)
     }, [userConversationState])
-
-    const handeSendMessage = (dataCreateMessage: CreateMessageDto) => {
-        dispatch({
-            type: `${messageAction.sendMessagePending}_saga`,
-            payload: dataCreateMessage,
-        })
-    }
 
     return (
         <>
@@ -52,7 +43,9 @@ const Message = ({userInfoState}) => {
                                 {!isEmpty(userConversation) && userConversation.map((c: IUserConversation, index) => (
                                     <Nav.Item key={index}>
                                         <Nav.Link eventKey={c?.conversationId}>
-                                            {c?.conversation && <Conversation dataConversation={c?.conversation}/>}
+                                            {c?.conversation && c?.userId && <Conversation dataConversation={c?.conversation}
+                                                                                           userId={c?.userId}
+                                            />}
                                         </Nav.Link>
                                     </Nav.Item>
                                 ))}
@@ -65,7 +58,6 @@ const Message = ({userInfoState}) => {
                                         {c?.conversation && c?.userId &&
                                             <ConversationMessage dataConversation={c?.conversation}
                                                                  userId={c?.userId}
-                                                                 onSendMessage={handeSendMessage}
                                             />}
                                     </Tab.Pane>
                                 ))}

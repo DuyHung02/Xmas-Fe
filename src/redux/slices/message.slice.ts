@@ -1,9 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {IConversation} from "../types/conversation";
 import {IMessage} from "../types/message";
+import {IUserConversation} from "../types/userConversation";
 
 type IInitialState = {
-    conversations: IConversation[];
+    conversations: IUserConversation[];
     isLoading: boolean;
     isError: boolean;
     message: string;
@@ -40,7 +40,7 @@ const fetchConversationSuccess = (
     state: IInitialState,
     action: {
         type: string,
-        payload: IConversation[]
+        payload: IUserConversation[]
     }
 ) => {
     state.conversations = action.payload;
@@ -54,9 +54,12 @@ const sendMessageSuccess = (
         payload: IMessage,
     }
 ) => {
-    const conversation = state.conversations.find(c => c.id === action.payload.conversationId)
+    console.log('state: ',JSON.parse(JSON.stringify(state)))
+
+    const conversation = state.conversations.find(c => c.conversationId === action.payload.conversationId)
+    console.log(conversation)
     if (conversation) {
-        conversation.messages?.push(action.payload)
+        conversation.conversation?.messages?.push(action.payload)
     }
 }
 
