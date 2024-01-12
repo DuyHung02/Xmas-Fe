@@ -1,10 +1,10 @@
-import {IProfile} from "./profile";
+import { IProfile } from './profile';
 
 export type IUser = {
-    id: number;
-    username: string;
-    isAdmin: boolean;
-    profile: IProfile;
-    createAt: Date;
-    updateAt: Date;
-}
+  id: number;
+  username?: string;
+  isAdmin?: boolean;
+  profile?: IProfile;
+  createAt?: Date;
+  updateAt?: Date;
+};

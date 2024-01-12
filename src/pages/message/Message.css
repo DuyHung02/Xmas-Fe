@@ -25,3 +25,12 @@
 .message-btn-add:hover {
     color: #fd5454;
 }
+
+.container-conversation {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.conversation-content {
+
+}

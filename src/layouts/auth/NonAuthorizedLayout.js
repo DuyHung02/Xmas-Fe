@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BlankLayout from '../BlankLayout';
-import {Navigate, Outlet} from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 const NonAuthorizedLayout = ({ tokenState }) => {
   if (tokenState) {

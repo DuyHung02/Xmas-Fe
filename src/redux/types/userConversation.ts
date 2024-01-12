@@ -1,7 +1,7 @@
-import {IConversation} from "./conversation";
+import { IConversation } from './conversation';
 
 export type IUserConversation = {
-    userId?: number;
-    conversationId?: number;
-    conversation?: IConversation;
-}
+  userId?: number;
+  conversationId?: number;
+  conversation?: IConversation;
+};

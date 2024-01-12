@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IProduct } from '../types/product';
+import { IUser } from '../types/user';
 
 type IInitialState = {
-  products: IProduct[];
+  friends: IUser[];
   isLoading: boolean;
   isError: boolean;
   message: string;
 };
 
 const initialState: IInitialState = {
-  products: [],
+  friends: [],
   isLoading: false,
   isError: false,
   message: '',
@@ -30,28 +30,29 @@ const requestError = (
   state.message = action.payload.message;
 };
 
-const fetchProductsPending = requestPending;
-const fetchProductsError = requestError;
+const fetchListFriendsPending = requestPending;
+const fetchListFriendsError = requestError;
 
-const fetchProductsSuccess = (
+const fetchListFriendSuccess = (
   state: IInitialState,
   action: {
     type: string;
-    payload: IProduct[];
+    payload: IUser[];
   },
 ) => {
-  state.products = action.payload;
+  state.friends = action.payload;
+  state.isLoading = false;
 };
 
-const managerProductSlice = createSlice({
-  name: 'products',
-  initialState: initialState,
+const managerFriendSlice = createSlice({
+  name: 'friend',
+  initialState,
   reducers: {
-    fetchProductsPending,
-    fetchProductsError,
-    fetchProductsSuccess,
+    fetchListFriendsPending,
+    fetchListFriendsError,
+    fetchListFriendSuccess,
   },
 });
 
-export default managerProductSlice.reducer;
-export const managerProductActions = managerProductSlice.actions;
+export default managerFriendSlice.reducer;
+export const managerFriendAction = managerFriendSlice.actions;

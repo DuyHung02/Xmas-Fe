@@ -7,12 +7,15 @@ import {
   LOGOUT_FAIL,
   REGISTER_PENDING,
   REGISTER_FAIL,
-  REGISTER_SUCCESS, CHANGE_PASSWORD_PENDING, CHANGE_PASSWORD_FAIL, CHANGE_PASSWORD_SUCCESS,
-} from "../actions/auth.action";
+  REGISTER_SUCCESS,
+  CHANGE_PASSWORD_PENDING,
+  CHANGE_PASSWORD_FAIL,
+  CHANGE_PASSWORD_SUCCESS,
+} from '../actions/auth.action';
 
 const initState = {
-  username: "",
-  token: "",
+  username: '',
+  token: '',
   isAdmin: false,
   userId: null,
   userInfo: {},
@@ -30,28 +33,28 @@ const authReducer = (state = initState, action) => {
         ...state,
         isLoading: true,
         message: '',
-      }
+      };
     case REGISTER_PENDING:
     case CHANGE_PASSWORD_PENDING:
       return {
         ...state,
         isLoading: true,
-        message: ''
-      }
+        message: '',
+      };
     case LOGIN_FAIL:
     case LOGOUT_FAIL:
       return {
         ...state,
         isLoading: false,
         message: action.message,
-      }
+      };
     case REGISTER_FAIL:
     case CHANGE_PASSWORD_FAIL:
       return {
         ...state,
         isLoading: false,
         message: action.message,
-      }
+      };
     case LOGIN_SUCCESS:
       userInfo = {
         userId: authData.userId,
@@ -89,8 +92,8 @@ const authReducer = (state = initState, action) => {
       return {
         ...state,
         isLoading: false,
-        message: ''
-      }
+        message: '',
+      };
     default:
       return state;
   }

@@ -15,3 +15,10 @@
     width: 150px;
     font-size: 15px;
 }
+
+.conversation-name h6 {
+    white-space: nowrap;       /* Ngăn chặn xuống dòng */
+    overflow: hidden;          /* Ẩn nội dung dư thừa */
+    text-overflow: ellipsis;   /* Hiển thị dấu "..." khi tràn ngang */
+    width: 150px;
+}

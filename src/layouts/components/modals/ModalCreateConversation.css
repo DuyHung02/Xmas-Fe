@@ -1,0 +1,33 @@
+.friend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.8s ease;
+}
+
+.friend:hover {
+    transition: color 0.8s ease;
+    background-color: rgba(230, 230, 234, 0.89);
+}
+
+.friend-name {
+    margin: 0 0 0 10px;
+}
+
+.list-friends {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.form-check-input {
+    border: var(--bs-border-width) solid #fd5454 !important;
+}
+
+.form-check-input:checked {
+    background-color: #fd5454 !important;
+    border-color: #fd5454 !important;
+}
